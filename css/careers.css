@@ -1,0 +1,153 @@
+body{
+    margin:0;
+    width:100%;
+}
+.header{
+    background-color: #3399cc;
+    padding:25px;
+}
+.mainHeading{
+    font-family: 'Century Gothic';
+    color:#ffffff;
+    font-weight: 100;
+    margin: 0px;
+    font-size: 53px;
+}
+.navigationBar{
+    background-color: #333333;
+    display: flex;
+    text-align: center;
+    padding: 0px;
+    justify-content: space-between;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+.navItem{
+    padding:8px 12px 4px 15px;
+    border-width: 0px 0px 0px 5px;
+    border-style: solid;
+    border-color: #333333;
+    color: white;
+}
+.navItem:hover{
+    background-color: #f89502;
+    border-color: white;
+    color: black;
+    cursor: pointer;
+    font-weight: bolder;
+}
+.navigate{
+    color: inherit;
+    font-family: Ebrima;
+    font-size: 18px;
+    font-weight:bolder;
+    text-decoration: none;
+}
+.activePage{
+    background-color: #f89502;
+    border-color: white;
+    color: black;
+    font-weight: bolder;
+}
+.icon{
+    margin: 8px 28px 8px 0px;
+}
+.career{
+    padding: 20px 0px 0px 60px;
+    width:1050px;
+}
+.careerHeading{
+    font-weight: normal;
+    font-family:'Century Gothic';
+    text-shadow: 0.1px 0.1px 1px;
+    margin: 0px;
+    font-weight: normal;
+    font-size: 28px;
+    color: #464646;
+}
+.weAre{
+    font-family: "Ebrima";
+    text-shadow: 0px 0px 0.7px;
+    font-size: 16.5px;
+    color: #626262;
+    margin: 0px;
+    padding: 15px 5px ;
+}
+.details{
+    padding: 15px 0px 0px 60px;
+}
+.input{
+    height: 32px;
+    width:185px;
+    padding: 0px;
+    border-color:#bbbbbb;
+    border-style: solid;
+    border-width: 2px;
+    font-size: 18px;
+    margin: 0px;
+}
+table{
+    padding-left: 10px;
+    border-spacing: 15px;
+}
+th{
+    font-family: Calibri;
+    text-align: left;
+}
+tr{
+    height: 40px;
+}
+label{
+    font-size: 18px;
+}
+textarea{
+    overflow-y: scroll;
+    resize: none;
+    height: 100px;
+    width:100%;
+    padding: 0px;
+    border-color:#bbbbbb;
+    border-style: solid;
+    border-width: 2px;
+    font-size: 18px;
+    margin: 0px;
+}
+#uploadbut{
+    cursor: pointer;
+    opacity:0;
+    width: 100px;
+}
+.radio{
+    width: 20px;
+    height: auto;
+}
+.button{
+    text-align: center;
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 18px;
+    width: 135px;
+    cursor: pointer;
+    height:32px;
+    border-color:#bbbbbb;
+    border-style: solid;
+    border-width: 2px;
+}
+.error{
+    color: red;
+    font-family: calibri;
+    margin: 0px;
+}
+.sameline{
+    display: inline;
+}
+p{
+    font-size: 18px;
+    font-family: Calibri;
+    margin: 0px;
+}
+.optional{
+    font-weight: bold;
+}
