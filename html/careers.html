@@ -1,8 +1,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="../css/careers.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="../JS/careers.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     </head>
     <body>
         <header class="header">
@@ -31,7 +31,7 @@
                             <label for="name">My Name</label>
                         </th>
                         <td>
-                            <input class="input" type="text" id="name" onchange="validateName()">
+                            <input class="input" type="text" id="name">
                             <p class="error sameline">*</p>
                             <p id="nameError" class="error"></p>
                         </td>
@@ -41,8 +41,8 @@
                             <label>My Gender</label>
                         </th>
                         <td>
-                            <input class="radio" type="radio" name="gender" id="male" value="Sir" onclick="genderCheck(this.value)"><label for="male">Male</label><br>
-                            <input class="radio" type="radio" name="gender" id="female" value="Lady" onclick="genderCheck(this.value)"><label for="female">Female</label>
+                            <input class="radio" type="radio" name="gender" id="male" value="Sir"><label for="male">Male</label><br>
+                            <input class="radio" type="radio" name="gender" id="female" value="Lady"><label for="female">Female</label>
                             <p id="genderError" class="error"></p>
                         </td>
                     </tr>
@@ -51,7 +51,7 @@
                             <label for="email">My Email Address</label>
                         </th>
                         <td>
-                            <input type="text" id="email" class="input" onchange="validateEmail()">
+                            <input type="text" id="email" class="input">
                             <p id="reqEmail" class="error sameline"></p>
                             <p id="emailError" class="error"></p>
                         </td>
@@ -61,7 +61,7 @@
                             <label for="contact">My Telephone Number</label>
                         </th>
                         <td>
-                            <input type="text" id="contact" class="input" onchange="validateContact()">
+                            <input type="text" id="contact" class="input">
                             <p id="reqContact" class="error sameline"></p>
                             <p id="contactError" class="error"></p>
                         </td>
@@ -71,7 +71,7 @@
                             <label for="organisation">My Organisation Name</label>
                         </th>
                         <td>
-                            <input type="text" class="input" id="organisation" onchange="reqOrganisation()">
+                            <input type="text" class="input" id="organisation">
                             <p class="error sameline">*</p>
                             <p id="organisationError" class="error"></p>
                         </td>
@@ -89,7 +89,7 @@
                             <label for="state">My State or Province</label>
                         </th>
                         <td>
-                            <select id="state" class="input" onchange="changepromo()">
+                            <select id="state" class="input">
                                 <option value="null" selected>Select a State or Province</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -127,9 +127,9 @@
                             <label>Please Contact Me By</label>
                         </th>
                         <td>
-                            <input class="radio" type="radio" name="contactby" id="mail" value="reqEmail" onclick="contactbyCheck(this.value)"><label for="mail">Email</label><br>
-                            <input class="radio" type="radio" name="contactby" id="mobile" value="reqContact" onclick="contactbyCheck(this.value)"><label for="mobile">Phone</label><br>
-                            <input class="radio" type="radio" name="contactby" id="both" value="reqBoth" onclick="contactbyCheck(this.value)"><label for="both">Both</label>
+                            <input class="radio" type="radio" name="contactby" id="mail" value="reqEmail"><label for="mail">Email</label><br>
+                            <input class="radio" type="radio" name="contactby" id="mobile" value="reqContact"><label for="mobile">Phone</label><br>
+                            <input class="radio" type="radio" name="contactby" id="both" value="reqBoth"><label for="both">Both</label>
                             <p id="contactbyError" class="error"></p>
                         </td>
                     </tr>
@@ -149,7 +149,7 @@
                             <label for="website">My Website Address is</label>
                         </th>
                         <td>
-                            <input type="text" class="input" id="website" onchange="validateWebsite()">
+                            <input type="text" class="input" id="website">
                             <p id="websiteError" class="error"></p>
                         </td>
                     </tr>
@@ -167,10 +167,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="button" value="Send Message" class="button" onclick="checkForm()">
+                            <input type="button" value="Send Message" class="button" id="checkform">
                         </td>
                         <td>
-                            <input type="button" value="Clear Form" class="button" onclick="resetForm()">
+                            <input type="button" value="Clear Form" class="button" id="clearform">
                         </td>
                     </tr>
                     <tr>

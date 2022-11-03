@@ -1,3 +1,44 @@
+$(document).ready(function(){
+    $('#name').change(function(){
+        validateName();
+    });
+    $('#male').click(function(){
+        genderCheck($(this).val());
+    });
+    $('#female').click(function(){
+        genderCheck($(this).val());
+    });
+    $('#email').change(function(){
+        validateEmail();
+    });
+    $('#contact').change(function(){
+        validateContact();
+    });
+    $('#organisation').change(function(){
+        reqOrganisation();
+    });
+    $('#state').change(function(){
+        changepromo();
+    });
+    $('#mail').click(function(){
+        contactbyCheck($(this).val());
+    });
+    $('#mobile').click(function(){
+        contactbyCheck($(this).val());
+    });
+    $('#both').click(function(){
+        contactbyCheck($(this).val());
+    });
+    $('#website').change(function(){
+        validateWebsite();
+    });
+    $('#checkform').click(function(){
+        checkForm();
+    });
+    $('#clearform').click(function(){
+        resetForm();
+    });
+});
 function require(text){
     if(text==""){
         return false;
