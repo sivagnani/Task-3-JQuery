@@ -1,43 +1,17 @@
 $(document).ready(function(){
-    $('#name').blur(function(){
-        validateName();
-    });
-    $('#male').click(function(){
-        genderCheck($(this).val());
-    });
-    $('#female').click(function(){
-        genderCheck($(this).val());
-    });
-    $('#email').blur(function(){
-        validateEmail();
-    });
-    $('#contact').blur(function(){
-        validateContact();
-    });
-    $('#organisation').blur(function(){
-        reqOrganisation();
-    });
-    $('#state').change(function(){
-        changepromo();
-    });
-    $('#mail').click(function(){
-        contactbyCheck($(this).val());
-    });
-    $('#mobile').click(function(){
-        contactbyCheck($(this).val());
-    });
-    $('#both').click(function(){
-        contactbyCheck($(this).val());
-    });
-    $('#website').blur(function(){
-        validateWebsite();
-    });
-    $('#checkform').click(function(){
-        checkForm();
-    });
-    $('#clearform').click(function(){
-        resetForm();
-    });
+    $('#name').blur(function(){validateName();});
+    $('#male').click(function(){genderCheck($(this).val());});
+    $('#female').click(function(){genderCheck($(this).val());});
+    $('#email').blur(function(){validateEmail();});
+    $('#contact').blur(function(){validateContact();});
+    $('#organisation').blur(function(){reqOrganisation();});
+    $('#state').change(function(){changepromo();});
+    $('#mail').click(function(){contactbyCheck($(this).val());});
+    $('#mobile').click(function(){contactbyCheck($(this).val());});
+    $('#both').click(function(){contactbyCheck($(this).val());});
+    $('#website').blur(function(){validateWebsite();});
+    $('#checkform').click(function(){checkForm();});
+    $('#clearform').click(function(){resetForm();});
 });
 function require(text){
     if(text==""){
@@ -102,7 +76,7 @@ function validateEmail(){
     const mail = /^[a-zA-Z0-9.$_*]+@[a-zA-Z0-9\-]+.[a-zA-Z0-9.]{3,}$/;
     if(mail.test(email) || email==""){
         if(email=="" && ($('#both').prop("checked")||$('#mail').prop("checked"))){
-            $('#emailError').text("Please Enter Email");
+            $('#emailError').text("Enter Email");
             return false;
         }
         else{
@@ -139,6 +113,17 @@ function contactbyCheck(contactby){
         return true;
     }
 }
+function requireContactby(){
+    if($('#mail').prop("checked")){
+        return contactbyCheck('reqEmail');
+    }
+    else if($('#mobile').prop("checked")){
+        return contactbyCheck('reqContact');
+    }
+    else{
+        return contactbyCheck('reqBoth');
+    }
+}
 function reqOrganisation(){
     let organisation = $("#organisation").val();
     if(require(organisation)){
@@ -162,7 +147,7 @@ function changepromo(){
 function validateWebsite(){
     let website = $("#website").val();
     let web = /^(http(s)?:\/\/)?((www.)?)+[a-zA-Z0-9#!:?+=&%!.\-\/]+\.[a-zA-Z\/]{2,}$/;
-    if(website.match(web) || website==""){
+    if(website.test(web) || website==""){
         $("#websiteError").html("&nbsp;");
     }
     else{
@@ -172,8 +157,9 @@ function validateWebsite(){
 function checkForm(){
     let name = validateName();
     let gender = requireGender();
+    let number = requireContactby();
     let organisation = reqOrganisation();
-    if(name && gender && organisation){
+    if(name && gender && number && organisation){
         $("#status").css("color","green");
         $("#status").text("Success");
         $('#reqContact').html("&nbsp;");
