@@ -147,11 +147,13 @@ function changepromo(){
 function validateWebsite(){
     let website = $("#website").val();
     let web = /^(http(s)?:\/\/)?((www.)?)+[a-zA-Z0-9#!:?+=&%!.\-\/]+\.[a-zA-Z\/]{2,}$/;
-    if(website.test(web) || website==""){
+    if(web.test(website) || website==""){
         $("#websiteError").html("&nbsp;");
+        return true;
     }
     else{
         $("#websiteError").text("Enter valid Website");
+        return false;
     }
 }
 function checkForm(){
@@ -159,7 +161,8 @@ function checkForm(){
     let gender = requireGender();
     let number = requireContactby();
     let organisation = reqOrganisation();
-    if(name && gender && number && organisation){
+    let web = validateWebsite();
+    if(name && gender && number && organisation &&web){
         $("#status").css("color","green");
         $("#status").text("Success");
         $('#reqContact').html("&nbsp;");
