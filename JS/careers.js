@@ -51,7 +51,7 @@ function validateName(){
     let name = $('#name').val();
     const validname =/^[a-zA-Z\s]{4,}$/;
     if(require(name)){
-        if(name.match(validname)){
+        if(validname.test(name)){
             $('#nameError').html("&nbsp;");
             return true;
         }
@@ -82,9 +82,9 @@ function requireGender(){
 function validateContact(){
     let number = $('#contact').val();
     const validnumber =/^[0-9]{10}$/;
-    if(number.match(validnumber) || number==""){
+    if(validnumber.test(number) || number==""){
         if(number==""&&($('#both').prop("checked")||$('#mobile').prop("checked"))){
-            $('#contactError').text("Please Enter Mobile Number");
+            $('#contactError').text("Enter Mobile Number");
             return false;
         }
         else{
@@ -93,14 +93,14 @@ function validateContact(){
         }
     }
     else{
-        $('#contactError').text("Enter valid Mobile Number");
+        $('#contactError').text("Invalid Mobile Number");
         return false;
     }
 }
 function validateEmail(){
     let email = $("#email").val();
     const mail = /^[a-zA-Z0-9.$_*]+@[a-zA-Z0-9\-]+.[a-zA-Z0-9.]{3,}$/;
-    if(email.match(mail) || email==""){
+    if(mail.test(email) || email==""){
         if(email=="" && ($('#both').prop("checked")||$('#mail').prop("checked"))){
             $('#emailError').text("Please Enter Email");
             return false;
@@ -139,21 +139,6 @@ function contactbyCheck(contactby){
         return true;
     }
 }
-function requireContactby(){
-    let selected = false;
-    if($('#mail').prop("checked")){
-        selected = true;
-        return selected && contactbyCheck('reqEmail');
-    }
-    else if($('#mobile').prop("checked")){
-        selected = true;
-        return selected && contactbyCheck('reqContact');
-    }
-    else{
-        selected = true;
-        return selected && contactbyCheck('reqBoth');
-    }
-}
 function reqOrganisation(){
     let organisation = $("#organisation").val();
     if(require(organisation)){
@@ -187,9 +172,8 @@ function validateWebsite(){
 function checkForm(){
     let name = validateName();
     let gender = requireGender();
-    let number = requireContactby();
     let organisation = reqOrganisation();
-    if(name && gender && number && organisation){
+    if(name && gender && organisation){
         $("#status").css("color","green");
         $("#status").text("Success");
         $('#reqContact').html("&nbsp;");
