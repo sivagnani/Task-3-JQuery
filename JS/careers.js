@@ -1,15 +1,15 @@
 $(document).ready(function(){
-    $('#name').blur(function(){validateName();});
+    $('#name').keyup(function(){validateName();});
     $('#male').click(function(){genderCheck($(this).val());});
     $('#female').click(function(){genderCheck($(this).val());});
-    $('#email').blur(function(){validateEmail();});
-    $('#contact').blur(function(){validateContact();});
-    $('#organisation').blur(function(){reqOrganisation();});
+    $('#email').keyup(function(){validateEmail();});
+    $('#contact').keyup(function(){validateContact();});
+    $('#organisation').keyup(function(){reqOrganisation();});
     $('#state').change(function(){changepromo();});
     $('#mail').click(function(){contactbyCheck($(this).val());});
     $('#mobile').click(function(){contactbyCheck($(this).val());});
     $('#both').click(function(){contactbyCheck($(this).val());});
-    $('#website').blur(function(){validateWebsite();});
+    $('#website').keyup(function(){validateWebsite();});
     $('#checkform').click(function(){checkForm();});
     $('#clearform').click(function(){resetForm();});
 });
@@ -24,6 +24,7 @@ function require(text){
 function validateName(){
     let name = $('#name').val();
     const validname =/^[a-zA-Z\s]{4,}$/;
+    console.log(name);
     if(require(name)){
         if(validname.test(name)){
             $('#nameError').html("&nbsp;");
